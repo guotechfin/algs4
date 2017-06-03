@@ -93,8 +93,11 @@ public class ClosestPair {
         double delta2 = closest(pointsByX, pointsByY, aux, mid+1, hi);
         double delta = Math.min(delta1, delta2);
 
-        // merge back so that pointsByY[lo..hi] are sorted by y-coordinate
+        // merge back so that pointsByY[lo..hi] are sorted by y-coordinate, according to Point2D compareTo logic!
         merge(pointsByY, aux, lo, mid, hi);
+//        Arrays.parallelSort(pointsByX,lo,hi,Point2D.Y_ORDER);
+//        Point2D[] t = new Point2D[hi-lo+1];
+//        t = Arrays.copyOfRange(pointsByY,lo,hi+1);
 
         // aux[0..m-1] = sequence of points closer than delta, sorted by y-coordinate
         int m = 0;
@@ -188,11 +191,13 @@ public class ClosestPair {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        int n = StdIn.readInt();
+//        StdOut.println("hellow");
+//        String is = Graph.class.getClassLoader().getResource("rs1423.txt").getPath();
+        int n = 10;/*StdIn.readInt();*/
         Point2D[] points = new Point2D[n];
         for (int i = 0; i < n; i++) {
-            double x = StdIn.readDouble();
-            double y = StdIn.readDouble();
+            double x = StdRandom.uniform()*100;
+            double y = StdRandom.uniform()*100;
             points[i] = new Point2D(x, y);
         }
         ClosestPair closest = new ClosestPair(points);

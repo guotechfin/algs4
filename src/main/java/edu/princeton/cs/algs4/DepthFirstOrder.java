@@ -209,8 +209,11 @@ public class DepthFirstOrder {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        String is = Graph.class.getClassLoader().getResource("tinyDAG.txt").getPath();
+        In in = new In(is/*args[0]*/);
         Digraph G = new Digraph(in);
+
+        StdOut.println(G);
 
         DepthFirstOrder dfs = new DepthFirstOrder(G);
         StdOut.println("   v  pre post");
