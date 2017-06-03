@@ -148,31 +148,34 @@ public class EdgeWeightedDirectedCycle {
     public static void main(String[] args) {
 
         // create random DAG with V vertices and E edges; then add F random edges
-        int V = Integer.parseInt(args[0]);
-        int E = Integer.parseInt(args[1]);
-        int F = Integer.parseInt(args[2]);
-        EdgeWeightedDigraph G = new EdgeWeightedDigraph(V);
-        int[] vertices = new int[V];
-        for (int i = 0; i < V; i++)
-            vertices[i] = i;
-        StdRandom.shuffle(vertices);
-        for (int i = 0; i < E; i++) {
-            int v, w;
-            do {
-                v = StdRandom.uniform(V);
-                w = StdRandom.uniform(V);
-            } while (v >= w);
-            double weight = StdRandom.uniform();
-            G.addEdge(new DirectedEdge(v, w, weight));
-        }
-
-        // add F extra edges
-        for (int i = 0; i < F; i++) {
-            int v = StdRandom.uniform(V);
-            int w = StdRandom.uniform(V);
-            double weight = StdRandom.uniform(0.0, 1.0);
-            G.addEdge(new DirectedEdge(v, w, weight));
-        }
+        int V = 3 /*Integer.parseInt(args[0])*/;
+        int E = 0/*Integer.parseInt(args[1])*/;
+        int F = 2/*Integer.parseInt(args[2])*/;
+        EdgeWeightedDigraph G = new EdgeWeightedDigraph(3);
+        G.addEdge(new DirectedEdge(0, 1, 0.2));
+        G.addEdge(new DirectedEdge(1, 2, 0.2));
+//        G.addEdge(new DirectedEdge(2, 0, 0.2));
+//        int[] vertices = new int[V];
+//        for (int i = 0; i < V; i++)
+//            vertices[i] = i;
+//        StdRandom.shuffle(vertices);
+//        for (int i = 0; i < E; i++) {
+//            int v, w;
+//            do {
+//                v = StdRandom.uniform(V);
+//                w = StdRandom.uniform(V);
+//            } while (v >= w);
+//            double weight = StdRandom.uniform();
+//            G.addEdge(new DirectedEdge(v, w, weight));
+//        }
+//
+//        // add F extra edges
+//        for (int i = 0; i < F; i++) {
+//            int v = StdRandom.uniform(V);
+//            int w = StdRandom.uniform(V);
+//            double weight = StdRandom.uniform(0.0, 1.0);
+//            G.addEdge(new DirectedEdge(v, w, weight));
+//        }
 
         StdOut.println(G);
 
@@ -189,6 +192,14 @@ public class EdgeWeightedDirectedCycle {
         // or give topologial sort
         else {
             StdOut.println("No directed cycle");
+        }
+
+        if(true){
+            System.out.println("1");
+        }else if(false){
+            System.out.println("2");
+        }else if(true){
+            System.out.println("3");
         }
     }
 
