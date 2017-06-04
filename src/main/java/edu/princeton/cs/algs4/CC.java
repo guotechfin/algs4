@@ -61,6 +61,7 @@ package edu.princeton.cs.algs4;
  */
 public class CC {
     private boolean[] marked;   // marked[v] = has vertex v been marked?
+    //group id for each vertex
     private int[] id;           // id[v] = id of connected component containing v
     private int[] size;         // size[id] = number of vertices in given component
     private int count;          // number of connected components
@@ -102,7 +103,9 @@ public class CC {
     // depth-first search for a Graph
     private void dfs(Graph G, int v) {
         marked[v] = true;
+        //v belongs to this group(#count)
         id[v] = count;
+        //group grows when explore deep one by one.
         size[count]++;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
@@ -207,7 +210,8 @@ public class CC {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        String path = CC.class.getClassLoader().getResource("tinyG.txt").getPath();
+        In in = new In(path/*args[0]*/);
         Graph G = new Graph(in);
         CC cc = new CC(G);
 

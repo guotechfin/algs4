@@ -137,6 +137,7 @@ public class Cycle {
                 dfs(G, v, w);
             }
 
+            //w is visited but it is not parent of v, the parent of v is u
             // check for cycle (but disregard reverse of edge leading to v)
             else if (w != u) {
                 cycle = new Stack<Integer>();
@@ -155,8 +156,11 @@ public class Cycle {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
+//        In in = new In(args[0]);
+        Graph G = new Graph(3/*in*/);
+        G.addEdge(1,2);
+        G.addEdge(2,0);
+        G.addEdge(0,1);
         Cycle finder = new Cycle(G);
         if (finder.hasCycle()) {
             for (int v : finder.cycle()) {
