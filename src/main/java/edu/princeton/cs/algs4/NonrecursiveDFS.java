@@ -119,9 +119,12 @@ public class NonrecursiveDFS {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
-        int s = Integer.parseInt(args[1]);
+//        In in = new In(args[0]);
+        Graph G = new Graph(4);
+        G.addEdge(0,2);
+        G.addEdge(2,1);
+        G.addEdge(0,1);
+        int s = 0/*Integer.parseInt(args[1])*/;
         NonrecursiveDFS dfs = new NonrecursiveDFS(G, s);
         for (int v = 0; v < G.V(); v++)
             if (dfs.marked(v))
