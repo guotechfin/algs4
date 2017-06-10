@@ -254,7 +254,8 @@ public class EdgeWeightedGraph {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        String path = EdgeWeightedGraph.class.getClassLoader().getResource("tinyEWG.txt").getPath();
+        In in = new In(path);
         EdgeWeightedGraph G = new EdgeWeightedGraph(in);
         StdOut.println(G);
     }

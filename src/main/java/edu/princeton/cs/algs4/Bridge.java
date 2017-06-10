@@ -52,6 +52,7 @@ public class Bridge {
                 //postvisit
                 //visit done, update low as min of its children
 //                StdOut.println("post visit " + v +" ord is " + ord[v] +" low is "+ low[v]);
+                //maybe children have been relaxed in inner dfs, so parent also need to relax again.
                 low[v] = Math.min(low[v], low[c]);
                 if (low[c] == ord[c]) {
                     StdOut.println(v + "-" + c + " is a bridge");
@@ -60,6 +61,7 @@ public class Bridge {
             }
 
             // update low number - ignore reverse of edge leading to v
+            // cycle found, relax parent
             else if (c != p) {
                 StdOut.println("cycle found " + v +" -> " + c +" -> " + p);
                 low[v] = Math.min(low[v], low[c]);
