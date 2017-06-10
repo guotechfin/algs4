@@ -102,7 +102,7 @@ public class PrimMST {
         }
     }
 
-    // scan vertex v
+    // scan vertex v, CORE LOGIC
     private void scan(EdgeWeightedGraph G, int v) {
         marked[v] = true;
         for (Edge e : G.adj(v)) {
