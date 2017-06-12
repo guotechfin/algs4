@@ -139,6 +139,7 @@ public class Cycle {
             }
 
             //w is visited but it is not parent of v, the parent of v is u
+            //w is visited, but it is not a forward edge since it is not parent u, so it is a back edge.
             // check for cycle (but disregard reverse of edge leading to v)
             else if (w != u) {
                 cycle = new Stack<Integer>();
