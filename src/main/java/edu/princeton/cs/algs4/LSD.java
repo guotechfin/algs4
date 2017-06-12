@@ -46,6 +46,10 @@ public class LSD {
     // do not instantiate
     private LSD() { }
 
+    //ggg
+    //string we can use charAt to get char at index location
+    //but for number, we have to get by mod like mod%10
+
    /**  
      * Rearranges the array of W-character strings in ascending order.
      *
