@@ -11,6 +11,15 @@ package edu.princeton.cs.algs4;
  * bit_fld & (1<<n)
  */
 public class BitwiseOps {
+    /**
+     * convert to binary format
+     */
+    public static void convert(int n){
+        if(0==n) return;
+        convert(n/2);
+        //like stack, but since it is in recursion, it's in frame stack
+        System.out.print(n%2);
+    }
 
     public static boolean isPowerOf2(int x){
         return (x & (x-1)) ==0;
@@ -45,6 +54,7 @@ public class BitwiseOps {
     }
 
     public static void main(String[] args) {
+        convert(10);
 //        System.out.println(isPowerOf2(64));
 //        System.out.println(Integer.toBinaryString(34));
 //        System.out.println(isKBitSet(34,3));
