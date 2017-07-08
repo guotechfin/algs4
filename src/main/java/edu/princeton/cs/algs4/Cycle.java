@@ -143,6 +143,11 @@ public class Cycle {
             // check for cycle (but disregard reverse of edge leading to v)
             else if (w != u) {
                 cycle = new Stack<Integer>();
+//                for(int x=w;x!=u;x=edgeTo[x]){
+//                    cycle.push(x);
+//                }
+//                cycle.push(u);
+//                cycle.push(w);
                 for (int x = v; x != w; x = edgeTo[x]) {
                     cycle.push(x);
                 }
